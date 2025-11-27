@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonardo da Vinci</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: #D9C8A9; /* Vintage background color */
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2e2e2e;
+            padding: 15px 0;
+            z-index: 999;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #f4f1ea;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a:hover {
+            color: #d1b87b;
+        }
+
+        /* Hero */
+        .hero {
+            height: 90vh;
+            background: url('https://hips.hearstapps.com/hmg-prod/images/portrait-of-leonardo-da-vinci-1452-1519-getty.jpg?crop=1xw:0.75xh;center,top&resize=1200:*') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            text-shadow: 2px 2px 10px black;
+        }
+
+        section {
+            padding: 80px 12%;
+            min-height: 100vh;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        /* Biography Image */
+        .bio-image {
+            display: block;
+            width: 320px;
+            margin: 0 auto 30px auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Grid layout for image cards */
+        #paintings,
+        #morepaintings,
+        #works,
+        #funfacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .image-card {
+            background: #ffffffcc;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .image-card h3 {
+            font-size: 24px;
+            margin-top: 15px;
+        }
+
+        .image-card p {
+            font-size: 17px;
+            margin-top: 5px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #2e2e2e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 960px) {
+            .hero h1 {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#bio">Biography</a></li>
+            <li><a href="#paintings">Famous Paintings</a></li>
+            <li><a href="#morepaintings">Paintings</a></li>
+            <li><a href="#works">Inventions</a></li>
+            <li><a href="#funfacts">Fun Facts</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>Leonardo da Vinci</h1>
+    </div>
+
+    <!-- BIO -->
+    <section id="bio">
+        <h2>Biography</h2>
+
+        <img class="bio-image" src="https://image.demorgen.be/149073712/width/2480/een-neuroloog-verklaart-de-vele-onafgewerkte-kunstwerken-en-en">
+
+        <p>
+            Leonardo da Vinci (1452–1519) was an Italian polymath whose genius extended across painting,
+            engineering, anatomy, architecture, music, and invention. He is widely considered the greatest
+            Renaissance mind, blending science and art with unmatched creativity.
+        </p>
+        <p>
+            His notebooks contain thousands of sketches—from flying machines to anatomical studies—showing
+            ideas centuries ahead of their time. Leonardo spent his final years in France, where he passed away
+            in 1519 under the patronage of King Francis I.
+        </p>
+    </section>
+
+    <!-- PAINTINGS PAGE 1 -->
+    <section id="paintings">
+        <h2>Famous Paintings</h2>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg">
+            <h3>Mona Lisa</h3>
+            <p>The *Mona Lisa* (1503–1506) is Leonardo’s most iconic painting, known for her mysterious smile and soft sfumato shading.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/The-Last-Supper-Restored-Da-Vinci_32x16.jpg">
+            <h3>The Last Supper</h3>
+            <p>Painted between 1495–1498, this mural depicts the dramatic moment Jesus reveals that one disciple will betray him.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://smarthistory.org/wp-content/uploads/2022/06/Detail-scaled.jpg">
+            <h3>Virgin of the Rocks</h3>
+            <p>An atmospheric and emotional painting showcasing Leonardo’s mastery of light, shading, and nature.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Annunciation_%28Leonardo_c._1472%E2%80%931476%29.jpg">
+            <h3>The Annunciation</h3>
+            <p>One of Leonardo’s earliest works, painted when he was still in his 20s.</p>
+        </div>
+    </section>
+
+    <!-- MORE PAINTINGS -->
+    <section id="morepaintings">
+        <h2>More of Leonardo’s Artwork</h2>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg/1132px-Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg">
+            <h3>Ginevra de' Benci</h3>
+            <p>A groundbreaking portrait showing early mastery of realism and personality.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Lady_with_an_Ermine_-_Leonardo_da_Vinci_%28adjusted_levels%29.jpg">
+            <h3>Lady with an Ermine</h3>
+            <p>A symbolic and elegant portrait representing purity and intelligence.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://www.singulart.com/blog/wp-content/uploads/2019/08/magi-1140x727.jpg">
+            <h3>Adoration of the Magi</h3>
+            <p>An unfinished work filled with intense motion, symbolism, and complex structure.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg/960px-Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg">
+            <h3>St. John the Baptist</h3>
+            <p>Famous for its mysterious smile and dramatic shadowing.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/La_Belle_Ferroni%C3%A8re_-_Google_Arts.jpg">
+            <h3>La Belle Ferronnière</h3>
+            <p>A portrait admired for its precision and intensity.</p>
+        </div>
+    </section>
+
+    <!-- INVENTIONS -->
+    <section id="works">
+        <h2>Inventions & Scientific Work</h2>
+
+        <div class="image-card">
+            <img src="https://images.theconversation.com/files/272504/original/file-20190503-103045-ahb7af.jpg">
+            <h3>Aerial Screw</h3>
+            <p>An early helicopter concept showing Leonardo’s fascination with flight.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://cdn.britannica.com/40/96240-050-142CC589/flying-machine-Leonardo-da-Vinci-plans-ornithopter.jpg">
+            <h3>Ornithopter</h3>
+            <p>A wing-flapping flying machine inspired by birds.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://www.historyhit.com/app/uploads/2022/04/Leonardos-Tank.jpg">
+            <h3>Armored Tank</h3>
+            <p>A rotating cannon tank designed centuries before modern warfare.</p>
+        </div>
+
+        <div class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg">
+            <h3>Vitruvian Man</h3>
+            <p>The most iconic drawing in history, representing ideal human proportions.</p>
+        </div>
+    </section>
+
+    <!-- FUN FACTS -->
+    <section id="funfacts">
+        <h2>Fun Facts About Leonardo da Vinci</h2>
+
+        <div class="image-card">
+            <h3>✔ He Was Left-Handed</h3>
+            <p>Leonardo wrote most of his notes using mirror writing—from right to left—to avoid smudging ink.</p>
+        </div>
+
+        <div class="image-card">
+            <h3>✔ He Could Write and Draw at the Same Time</h3>
+            <p>Leonardo was ambidextrous and could perform two different tasks with both hands simultaneously.</p>
+        </div>
+
+        <div class="image-card">
+            <h3>✔ He Loved Animals Deeply</h3>
+            <p>He often bought caged birds just to set them free, showing his compassion for animals.</p>
+        </div>
+
+        <div class="image-card">
+            <h3>✔ He Was a Vegetarian</h3>
+            <p>Rare for his time, Leonardo avoided eating meat because he disliked harming animals.</p>
+        </div>
+
+        <div class="image-card">
+            <h3>✔ Many Works Were Left Unfinished</h3>
+            <p>Leonardo’s curiosity made him jump between projects, leaving several masterpieces incomplete.</p>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2025 Leonardo da Vinci Tribute Website  
+    </footer>
+
+</body>
+</html>
