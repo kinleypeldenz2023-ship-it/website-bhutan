@@ -1,189 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Bhutan Travel Guide</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonardo da Vinci</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Georgia', serif;
+        background: #F4E9D8;
+        color: #333;
+        scroll-behavior: smooth;
+    }
 
-    <style>
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
-            background: #e9f5ef;
-        }
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #2e2e2e;
+        padding: 15px 0;
+        z-index: 999;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        margin: 0 20px;
+    }
+    nav ul li a {
+        color: #f4f1ea;
+        text-decoration: none;
+        font-size: 18px;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+    nav ul li a:hover {
+        color: #d1b87b;
+    }
 
-        header {
-            background: url('https://i.pinimg.com/1200x/26/ce/2c/26ce2c26b47012bde3bd48f63e925ad4.jpg') center/cover no-repeat;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            background-size: cover;
-        }
+    /* Hero */
+    .hero {
+        height: 90vh;
+        background: url('https://hips.hearstapps.com/hmg-prod/images/portrait-of-leonardo-da-vinci-1452-1519-getty.jpg?crop=1xw:0.75xh;center,top&resize=1200:*') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding-top: 60px;
+        position: relative;
+    }
+    .hero h1 {
+        font-size: 60px;
+        text-shadow: 2px 2px 10px black;
+    }
 
-        header h1 {
-            font-size: 48px;
-            text-shadow: 2px 2px 4px black;
-        }
+    section {
+        padding: 80px 12%;
+    }
 
-        nav {
-            background-color: #004d29;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+    h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #4D3C2B;
+    }
 
-        nav a {
-            color: white;
-            margin: 0 20px;
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    /* Biography Image */
+    .bio-image {
+        display: block;
+        width: 260px;
+        margin: 0 auto 30px auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-        nav a:hover {
-            color: #ffe066;
-        }
+    /* Grid for paintings, inventions, fun facts */
+    #paintings,
+    #morepaintings,
+    #works,
+    #funfacts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
 
-        section {
-            padding: 40px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+    .image-card {
+        background: #ffffffcc;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        backdrop-filter: blur(4px);
+        text-align: center;
+        transition: 0.3s;
+    }
 
-        h2 {
-            color: #006b3c;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
+    /* Hover zoom effect */
+    .image-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-            transition: 0.3s;
-        }
+    .image-card img {
+        width: 70%;
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
 
-        .card:hover {
-            transform: scale(1.02);
-        }
+    .image-card h3 {
+        font-size: 22px;
+        margin-top: 15px;
+        color: #4D3C2B;
+    }
 
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            max-height: 350px;
-            object-fit: cover;
-        }
+    .image-card p {
+        font-size: 16px;
+        margin-top: 5px;
+        line-height: 1.6;
+    }
 
-        video {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
+    /* Timeline */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto 50px auto;
+        background: #fff9f0;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .timeline div {
+        padding: 10px 20px;
+        border-left: 3px solid #d1b87b;
+        position: relative;
+    }
+    .timeline div::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 10px;
+        width: 15px;
+        height: 15px;
+        background: #d1b87b;
+        border-radius: 50%;
+    }
+    .timeline h4 {
+        margin: 0;
+        color: #4D3C2B;
+    }
+    .timeline p {
+        margin: 5px 0 0 0;
+        font-size: 16px;
+    }
 
-        footer {
-            background-color: #004d29;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+    /* Quotes */
+    .quotes {
+        max-width: 900px;
+        margin: 0 auto 50px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .quotes blockquote {
+        background: #fff9f0;
+        padding: 20px;
+        border-left: 5px solid #d1b87b;
+        font-style: italic;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer {
+        background: #2e2e2e;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* Back to top button */
+    #topBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #d1b87b;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+        font-size: 16px;
+        z-index: 1000;
+        transition: 0.3s;
+    }
+    #topBtn:hover {
+        background: #b39655;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+        #paintings,
+        #morepaintings,
+        #works,
+        #funfacts {
+            grid-template-columns: 1fr;
         }
-    </style>
+        .image-card img {
+            width: 80%;
+        }
+    }
+    @media (max-width: 600px) {
+        nav ul li {
+            margin: 0 10px;
+        }
+        .hero h1 {
+            font-size: 35px;
+        }
+    }
+</style>
 </head>
-
 <body>
 
-<header>
-    <h1>Bhutan Travel Guide</h1>
-    <p>Explore the Land of the Thunder Dragon</p>
-</header>
-
 <nav>
-    <a href="#places">Places</a>
-    <a href="#food">Food</a>
-    <a href="#activities">Activities</a>
-    <a href="#vlog">Vlog</a>
+    <ul>
+        <li><a href="#bio">Biography</a></li>
+        <li><a href="#paintings">Famous Paintings</a></li>
+        <li><a href="#morepaintings">Paintings</a></li>
+        <li><a href="#works">Inventions</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#quotes">Quotes</a></li>
+        <li><a href="#funfacts">Fun Facts</a></li>
+    </ul>
 </nav>
 
-<section id="places">
-    <h2>📍 Places to Visit</h2>
+<div class="hero">
+    <h1>Leonardo da Vinci</h1>
+</div>
 
-    <div class="card">
-        <img src="https://i.pinimg.com/1200x/f2/72/f4/f272f4b04f072764ed83c7fc1bbb4341.jpg" />
-        <h3>Tiger’s Nest (Paro)</h3>
-        <p>A sacred monastery perched on a cliff, offering breathtaking views.</p>
-    </div>
-
-    <div class="card">
-        <img src="https://i.pinimg.com/1200x/e4/59/0a/e4590afdd3aa5026b7d7dd538260e71c.jpg" />
-        <h3>Punakha Dzong</h3>
-        <p>The most majestic Dzong in Bhutan, built at the meeting of two rivers.</p>
-    </div>
-
-    <div class="card">
-        <img src="https://i.pinimg.com/736x/30/31/80/30318067117a1ca8e6d6e1c4ccba93aa.jpg" />
-        <h3>Dochula Pass</h3>
-        <p>Famous for its 108 chortens and Himalayan views.</p>
-    </div>
+<!-- BIO -->
+<section id="bio">
+    <h2>Biography</h2>
+    <img class="bio-image" src="https://image.demorgen.be/149073712/width/2480/een-neuroloog-verklaart-de-vele-onafgewerkte-kunstwerken-en-en">
+    <p>Leonardo da Vinci (1452–1519) was an Italian polymath whose genius extended across painting, engineering, anatomy, architecture, music, and invention.</p>
+    <p>His notebooks contain thousands of sketches—from flying machines to anatomical studies—showing ideas centuries ahead of their time.</p>
 </section>
 
-<section id="food">
-    <h2>🍲 Food to Try</h2>
-
-    <div class="card">
-        <img src="https://i.pinimg.com/736x/02/f0/52/02f0524cf8343571733e4f1706f49ff4.jpg" />
-        <h3>Ema Datshi</h3>
-        <p>The national dish made of chilies and cheese.</p>
-    </div>
-
-    <div class="card">
-        <img src="https://picsum.photos/seed/momo/800/400" />
-        <h3>Momos</h3>
-        <p>Steamed dumplings filled with meat or vegetables.</p>
-    </div>
-
-    <div class="card">
-        <img src="https://picsum.photos/seed/redrice/800/400" />
-        <h3>Red Rice</h3>
-        <p>A Bhutanese staple with a unique nutty flavor.</p>
-    </div>
+<!-- PAINTINGS -->
+<section id="paintings">
+<h2>Famous Paintings</h2>
+<div class="image-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg" style = "width : 300px">
+    <h3>Mona Lisa</h3>
+    <p>Iconic for her mysterious smile and soft shading.</p>
+</div>
+<div class="image-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/The-Last-Supper-Restored-Da-Vinci_32x16.jpg">
+    <h3>The Last Supper</h3>
+    <p>Depicts Jesus and his disciples in a dramatic moment.</p>
+</div>
+<div class="image-card">
+    <img src="https://smarthistory.org/wp-content/uploads/2022/06/Detail-scaled.jpg">
+    <h3>Virgin of the Rocks</h3>
+    <p>Showcases Leonardo’s mastery of light and composition.</p>
+</div>
+<div class="image-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Annunciation_%28Leonardo_c._1472%E2%80%931476%29.jpg">
+    <h3>The Annunciation</h3>
+    <p>An early work highlighting his detailed style.</p>
+</div>
 </section>
 
-<section id="activities">
-    <h2>🎉 Things to Do</h2>
-
-    <div class="card">
-        <h3>Popular Experiences</h3>
-        <ul>
-            <li>Attend a Tshechu Festival</li>
-            <li>Trek the Druk Path</li>
-            <li>Relax in a Bhutanese Hot Stone Bath</li>
-            <li>Visit Local Handicraft Shops</li>
-            <li>Explore ancient Dzongs and temples</li>
-        </ul>
-    </div>
+<!-- MORE PAINTINGS -->
+<section id="morepaintings">
+<h2>More Artwork</h2>
+<div class="image-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg/1132px-Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg">
+    <h3>Ginevra de' Benci</h3>
+    <p>Early portrait displaying realism.</p>
+</div>
+<div class="image-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Lady_with_an_Ermine_-_Leonardo_da_Vinci_%28adjusted_levels%29.jpg">
+    <h3>Lady with an Ermine</h3>
+    <p>Represents purity and elegance.</p>
+</div>
+<div class="image-card">
+    <img src="https://www.singulart.com/blog/wp-content/uploads/2019/08/magi-1140x727.jpg">
+    <h3>Adoration of the Magi</h3>
+    <p>Unfinished yet full of movement and symbolism.</p>
+</div>
+<div class="image-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg/960px-Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg">
+    <h3>St. John the Baptist</h3>
+    <p>Mysterious and dramatic in shadowing.</p>
+</div>
 </section>
 
-<section id="vlog">
-    <h2>🎥 Bhutan Travel Vlog</h2>
-
-    <div class="card">
-        <h3>Experience Bhutan Through Video</h3>
-        <p>Here is a sample vlog video that works on all HTML compilers.</p>
-
-        <!-- Working Video File -->
-        <video controls>
-            <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
-        </video>
-    </div>
+<!-- INVENTIONS -->
+<section id="works">
+<h2>Inventions</h2>
+<div class="image-card">
+    <img src="https://images.theconversation.com/files/272504/original/file-20190503-103045-ahb7af.jpg">
+    <h3>Aerial Screw</h3>
+    <p>Early helicopter design showcasing flight ideas.</p>
+</div>
+<div class="image-card">
+    <img src="https://cdn.britannica.com/40/96240-050-142CC589/flying-machine-Leonardo-da-Vinci-plans-ornithopter.jpg">
+    <h3>Ornithopter</h3>
+    <p>Wing-flapping flying machine inspired by birds.</p>
+</div>
+<div class="image-card">
+    <img src="https://www.historyhit.com/app/uploads/2022/04/Leonardos-Tank.jpg">
+    <h3>Armored Tank</h3>
+    <p>Revolutionary military invention ahead of its time.</p>
+</div>
+<div class="image-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg">
+    <h3>Vitruvian Man</h3>
+    <p>Represents ideal human proportions.</p>
+</div>
 </section>
 
+<!-- TIMELINE -->
+<section id="timeline">
+<h2>Timeline</h2>
+<div class="timeline">
+    <div><h4>1452</h4><p>Born in Vinci, Italy.</p></div>
+    <div><h4>1472</h4><p>Joined Florence’s painters guild.</p></div>
+    <div><h4>1495-1498</h4><p>Painted The Last Supper in Milan.</p></div>
+    <div><h4>1503-1506</h4><p>Created Mona Lisa.</p></div>
+    <div><h4>1519</h4><p>Passed away in France.</p></div>
+</div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes">
+<h2>Famous Quotes</h2>
+<div class="quotes">
+<blockquote>"Learning never exhausts the mind." – Leonardo da Vinci</blockquote>
+<blockquote>"Simplicity is the ultimate sophistication." – Leonardo da Vinci</blockquote>
+<blockquote>"Art is never finished, only abandoned." – Leonardo da Vinci</blockquote>
+</div>
+</section>
+
+<!-- FUN FACTS -->
+<section id="funfacts">
+<h2>Fun Facts</h2>
+<div class="image-card">
+<h3>✔ Left-Handed</h3>
+<p>He wrote backward to avoid smudging ink.</p>
+</div>
+<div class="image-card">
+<h3>✔ Ambidextrous</h3>
+<p>Could draw and write simultaneously.</p>
+</div>
+<div class="image-card">
+<h3>✔ Loved Animals</h3>
+<p>He bought birds to set them free.</p>
+</div>
+<div class="image-card">
+<h3>✔ Vegetarian</h3>
+<p>Rare for his time, he avoided meat.</p>
+</div>
+</section>
+
+<!-- Footer -->
 <footer>
-    <p>© 2025 Bhutan Travel Guide | Made by Student</p>
+© 2025 Leonardo da Vinci Tribute Website  
 </footer>
+
+<!-- Back to top button -->
+<button id="topBtn" onclick="topFunction()">↑ Top</button>
+
+<script>
+    // Back to top button
+    let topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+        if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
+            topBtn.style.display = "block";
+        } else {
+            topBtn.style.display = "none";
+        }
+    };
+    function topFunction(){
+        window.scrollTo({top:0, behavior:'smooth'});
+    }
+</script>
 
 </body>
 </html>
