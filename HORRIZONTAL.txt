@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonardo da Vinci</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Georgia', serif;
+        background: #F4E9D8;
+        color: #333;
+        scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #2e2e2e;
+        padding: 15px 0;
+        z-index: 999;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        margin: 0 20px;
+    }
+    nav ul li a {
+        color: #f4f1ea;
+        text-decoration: none;
+        font-size: 18px;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+    nav ul li a:hover {
+        color: #d1b87b;
+    }
+
+    /* Hero */
+    .hero {
+        height: 90vh;
+        background: url('https://hips.hearstapps.com/hmg-prod/images/portrait-of-leonardo-da-vinci-1452-1519-getty.jpg?crop=1xw:0.75xh;center,top&resize=1200:*') 
+                    center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding-top: 60px;
+    }
+    .hero h1 {
+        font-size: 60px;
+        text-shadow: 2px 2px 10px black;
+    }
+
+    section {
+        padding: 80px 12%;
+    }
+
+    h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #4D3C2B;
+    }
+
+    /* Biography Image */
+    .bio-image {
+        display: block;
+        width: 260px;
+        margin: 0 auto 30px auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Image Card */
+    .image-card {
+        background: #ffffffcc;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        backdrop-filter: blur(4px);
+        text-align: center;
+        transition: 0.3s;
+        min-width: 260px;
+    }
+    .image-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .image-card img {
+        width: 70%;
+        border-radius: 10px;
+    }
+    .image-card h3 {
+        margin-top: 15px;
+        color: #4D3C2B;
+    }
+    .image-card p {
+        font-size: 15px;
+        margin-top: 6px;
+        color: #333;
+    }
+
+    /* Horizontal Scroll Rows */
+    .scroll-row {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        overflow-x: auto;
+        padding-bottom: 15px;
+        scroll-behavior: smooth;
+    }
+
+    .scroll-row::-webkit-scrollbar {
+        height: 8px;
+    }
+    .scroll-row::-webkit-scrollbar-thumb {
+        background: #cda86d;
+        border-radius: 4px;
+    }
+
+    /* Timeline */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto 50px auto;
+        background: #fff9f0;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .timeline div {
+        padding: 10px 20px;
+        border-left: 3px solid #d1b87b;
+        position: relative;
+    }
+
+    .timeline div::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 10px;
+        width: 15px;
+        height: 15px;
+        background: #d1b87b;
+        border-radius: 50%;
+    }
+
+    /* Quotes */
+    .quotes {
+        max-width: 900px;
+        margin: 0 auto 50px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .quotes blockquote {
+        background: #fff9f0;
+        padding: 20px;
+        border-left: 5px solid #d1b87b;
+        font-style: italic;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    footer {
+        background: #2e2e2e;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* Back to top button */
+    #topBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #d1b87b;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+        font-size: 16px;
+        z-index: 1000;
+        transition: 0.3s;
+    }
+    #topBtn:hover {
+        background: #b39655;
+    }
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#bio">Biography</a></li>
+        <li><a href="#paintings">Famous Paintings</a></li>
+        <li><a href="#morepaintings">Paintings</a></li>
+        <li><a href="#works">Inventions</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#quotes">Quotes</a></li>
+        <li><a href="#funfacts">Fun Facts</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>Leonardo da Vinci</h1>
+</div>
+
+<!-- BIO -->
+<section id="bio">
+    <h2>Biography</h2>
+    <img class="bio-image" src="https://image.demorgen.be/149073712/width/2480/een-neuroloog-verklaart-de-vele-onafgewerkte-kunstwerken-en-en">
+    <p>Leonardo da Vinci (1452–1519) was an Italian polymath whose genius extended across painting, engineering, anatomy, architecture, music, and invention.</p>
+    <p>His notebooks contain thousands of sketches—from flying machines to anatomical studies—showing ideas centuries ahead of their time.</p>
+</section>
+
+<!-- PAINTINGS -->
+<section id="paintings">
+<h2>Famous Paintings</h2>
+
+<div class="scroll-row">
+
+    <div class="image-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg">
+        <h3>Mona Lisa</h3>
+        <p>Famous for her mysterious smile and sfumato shading.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/The-Last-Supper-Restored-Da-Vinci_32x16.jpg">
+        <h3>The Last Supper</h3>
+        <p>Shows Jesus and his disciples at a dramatic moment.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://smarthistory.org/wp-content/uploads/2022/06/Detail-scaled.jpg">
+        <h3>Virgin of the Rocks</h3>
+        <p>Demonstrates Leonardo’s mastery of light and shadow.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Annunciation_%28Leonardo_c._1472%E2%80%931476%29.jpg">
+        <h3>The Annunciation</h3>
+        <p>An early work showing his detailed and delicate style.</p>
+    </div>
+
+</div>
+</section>
+
+<!-- MORE PAINTINGS -->
+<section id="morepaintings">
+<h2>More Artwork</h2>
+
+<div class="scroll-row">
+
+    <div class="image-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg/1132px-Leonardo_da_Vinci_-_Ginevra_de%27_Benci_-_Google_Art_Project.jpg">
+        <h3>Ginevra de' Benci</h3>
+        <p>One of his earliest portraits showing realism and detail.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Lady_with_an_Ermine_-_Leonardo_da_Vinci_%28adjusted_levels%29.jpg">
+        <h3>Lady with an Ermine</h3>
+        <p>A refined portrait symbolizing purity and elegance.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://www.singulart.com/blog/wp-content/uploads/2019/08/magi-1140x727.jpg">
+        <h3>Adoration of the Magi</h3>
+        <p>Unfinished masterpiece full of energy and symbolism.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg/960px-Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg">
+        <h3>St. John the Baptist</h3>
+        <p>Mysterious, dark portrait showing strong contrast.</p>
+    </div>
+
+</div>
+</section>
+
+<!-- INVENTIONS -->
+<section id="works">
+<h2>Inventions</h2>
+
+<div class="scroll-row">
+
+    <div class="image-card">
+        <img src="https://images.theconversation.com/files/272504/original/file-20190503-103045-ahb7af.jpg">
+        <h3>Aerial Screw</h3>
+        <p>Leonardo’s early helicopter concept.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://cdn.britannica.com/40/96240-050-142CC589/flying-machine-Leonardo-da-Vinci-plans-ornithopter.jpg">
+        <h3>Ornithopter</h3>
+        <p>A flying machine inspired by birds.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://www.historyhit.com/app/uploads/2022/04/Leonardos-Tank.jpg">
+        <h3>Armored Tank</h3>
+        <p>A revolutionary military vehicle concept.</p>
+    </div>
+
+    <div class="image-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg">
+        <h3>Vitruvian Man</h3>
+        <p>A study of ideal human proportions.</p>
+    </div>
+
+</div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+<h2>Timeline</h2>
+
+<div class="timeline">
+    <div><h4>1452</h4><p>Born in Vinci, Italy.</p></div>
+    <div><h4>1472</h4><p>Joined Florence’s painters guild.</p></div>
+    <div><h4>1495–1498</h4><p>Painted *The Last Supper* in Milan.</p></div>
+    <div><h4>1503–1506</h4><p>Began painting the *Mona Lisa*.</p></div>
+    <div><h4>1519</h4><p>Died in Amboise, France.</p></div>
+</div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes">
+<h2>Famous Quotes</h2>
+
+<div class="quotes">
+<blockquote>"Learning never exhausts the mind." – Leonardo da Vinci</blockquote>
+<blockquote>"Simplicity is the ultimate sophistication." – Leonardo da Vinci</blockquote>
+<blockquote>"Art is never finished, only abandoned." – Leonardo da Vinci</blockquote>
+</div>
+</section>
+
+<!-- FUN FACTS -->
+<section id="funfacts">
+<h2>Fun Facts</h2>
+
+<div class="scroll-row">
+
+    <div class="image-card">
+        <h3>✔ Left-Handed</h3>
+        <p>He wrote backward to avoid smudging ink.</p>
+    </div>
+
+    <div class="image-card">
+        <h3>✔ Ambidextrous</h3>
+        <p>He could draw and write at the same time.</p>
+    </div>
+
+    <div class="image-card">
+        <h3>✔ Loved Animals</h3>
+        <p>Often bought caged birds just to release them.</p>
+    </div>
+
+    <div class="image-card">
+        <h3>✔ Vegetarian</h3>
+        <p>He avoided meat for ethical reasons.</p>
+    </div>
+
+</div>
+</section>
+
+<footer>
+    © 2025 Leonardo da Vinci Tribute Website
+</footer>
+
+<button id="topBtn" onclick="topFunction()">↑ Top</button>
+
+<script>
+    let topBtn = document.getElementById("topBtn");
+
+    window.onscroll = function() {
+        if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
+            topBtn.style.display = "block";
+        } else {
+            topBtn.style.display = "none";
+        }
+    };
+
+    function topFunction(){
+        window.scrollTo({top:0, behavior:'smooth'});
+    }
+</script>
+
+</body>
+</html>
